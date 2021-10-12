@@ -10,21 +10,24 @@
       
     </head>
     <style>
-        table, th, td {
-          border:1px solid black;
-        }
-        </style>
+      table, th, td {
+        border:1px solid black;
+      }
+      #id01{
+        display:none;
+      }
+      </style>
 
 
     <body>
-        <table style="width:100%">
+        <table style="width:80%">
             <tr class ="table-active">
               <th>Food</th>
               <th>Location</th>
               <th>Donate By</th>
               <th>Donated</th>
             </tr>
-            <tr class ="table-active">
+            <tr class ="table-warning">
               <th><input type="text" name="food1" id="food1"/></th>
               <th>
                 <form>  
@@ -42,7 +45,7 @@
                 </select>  
                 </form>
               </th>
-              <th>Donate By</th>
+              <th>12/31/2021</th>
               <th>
                 <label>Donated</label>
                 <input type="checkbox" id="donate1" name="donate1" value="1">
@@ -50,16 +53,33 @@
             </tr>
 
           </table>
-          <tr class="table-active">...</tr>
 
-<tr class="table-primary">...</tr>
-<tr class="table-secondary">...</tr>
-<tr class="table-success">...</tr>
-<tr class="table-danger">...</tr>
-<tr class="table-warning">...</tr>
-<tr class="table-info">...</tr>
-<tr class="table-light">...</tr>
-<tr class="table-dark">...</tr>
+          <tr class="table-active"></tr>
+
+
+          <button onclick="document.getElementById('id01').style.display='block'"
+                  class="news-button">Add Item</button>
+                  <section id="id01" class = "news">
+                    <section onclick="document.getElementById('id01').style.display='none'"
+                    >&times;</section>
+                    <table style="width:50%">
+            <tr class ="table-active">
+              <th>What Food<input type="text" name="foodie" id="foodie"/></th>
+              <th>Donate where?<input type="text" name="donatie" id="donatie"/></th>
+              </tr>
+              </table>
+              <button onclick="document.getElementById('id01').style.display='none'"id="submit">Submit</button>
+                  </section>
+            <br>
+ 
+<tr class="table-primary"></tr>
+<tr class="table-secondary"></tr>
+<tr class="table-success"></tr>
+<tr class="table-danger"></tr>
+<tr class="table-warning"></tr>
+<tr class="table-info"></tr>
+<tr class="table-light"></tr>
+<tr class="table-dark"></tr>
         
     
         
