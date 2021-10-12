@@ -13,6 +13,7 @@
       table, th, td {
         border:1px solid black;
       }
+     
       #id01{
         display:none;
       }
@@ -20,16 +21,21 @@
 
 
     <body>
-        <table style="width:80%">
-            <tr class ="table-active">
-              <th>Food</th>
-              <th>Location</th>
-              <th>Donate By</th>
-              <th>Donated</th>
+        <table style="width:80%" class = "table table-bordered">
+          <thead class ="thead-light">
+            <tr>
+              <th scope = "col">Close to expire</th>
+              <th scope = "col">Food</th>
+              <th scope = "col">Location</th>
+              <th scope = "col">Donate By</th>
+              <th scope = "col">Donated</th>
             </tr>
-            <tr class ="table-warning">
-              <th><input type="text" name="food1" id="food1"/></th>
-              <th>
+          </thead>
+            <tbody>
+            <tr >
+              <th scope="row">1</th>
+              <td>Pack of beef, 24oz</td>
+              <td>
                 <form>  
                 <label> Select Location </label>  
                 <br>
@@ -44,14 +50,16 @@
                 </option>  
                 </select>  
                 </form>
-              </th>
-              <th>12/31/2021</th>
-              <th>
+              </td>
+              <td>12/31/2021</td>
+              <td>
                 <label>Donated</label>
                 <input type="checkbox" id="donate1" name="donate1" value="1">
-              <br></th>
+              <br></td>
             </tr>
+          </tbody>
 
+          
           </table>
 
           <tr class="table-active"></tr>
@@ -61,11 +69,13 @@
                   class="news-button">Add Item</button>
                   <section id="id01" class = "news">
                     <section onclick="document.getElementById('id01').style.display='none'"
-                    >&times;</section>
-                    <table style="width:50%">
+                    ><button>Cancel Entry</button></section>
+
+
+            <table style="width:50%">
             <tr class ="table-active">
-              <th>What Food<input type="text" name="foodie" id="foodie"/></th>
-              <th>Donate where?<input type="text" name="donatie" id="donatie"/></th>
+              <td>What Food<input type="text" name="foodie" id="foodie"/></td>
+              <td>Donate where?<input type="text" name="donatie" id="donatie"/></td>
               </tr>
               </table>
               <button onclick="document.getElementById('id01').style.display='none'"id="submit">Submit</button>
