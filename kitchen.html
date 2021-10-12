@@ -6,13 +6,14 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="css/styles.css">
-        <title>Stocks Smart</title>
+        <title>StockSmart</title>
 </head>
     <header>
         <div class="container">
+
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="#"><img style="height: 80px;"
-                    src="images/logo.png"
+                <a class="navbar-brand" href="#"><img style="height: 200px;"
+                    src="images/logo_new.png"
                   /></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -21,17 +22,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav ml-lg-auto">
                     <li class="nav-item active">
-                      <a class="nav-link" href="#">IN MY KITCHEN <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="#">In My Kitchen <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">GROCERY LIST</a>
+                      <a class="nav-link" href="#">Grocery List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">DONATION LIST</a>
+                        <a class="nav-link" href="#">Donation List</a>
                       </li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        PROFILE
+                        Profile
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">My profile</a>
@@ -45,11 +46,91 @@
               </nav>
         </div>
     </header>
+
+
+    <div class = "title">
+      <h1>Food Group</h1>
+      <hr class ="underline">
+    </div>
+    <div class="row" style = "margin-left: 100px; text-align: center; margin-top: 10px;">
+     
+      <div class="col-sm-2">
+       
+        <div class="card " style = "border-radius: 10%; border-color: white;    " >
+          <img src="images/1.png" class="card-img-top" alt="...">
+
+          <div class="card-body">
+         
+            <a href="#" class="btn btn-primary food_group">DAIRY</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="card" style = "border-radius: 10%; border-color: white; ">
+          <img src="images/2.png" class="card-img-top" alt="...">
+          <div class="card-body">
+         
+         
+           
+            <a href="#" class="btn btn-primary food_group">FRUITS</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-2">
+        <div class="card" style = "border-radius: 10%; border-color: white;">
+          <img src="images/3.png" class="card-img-top" alt="...">
+          <div class="card-body">
+           
+            
+            
+            <a href="#" class="btn btn-primary food_group">VEGETABLES</a>
+          </div>
+        </div>
+        </div>
+      
+
+      <div class="col-sm-2">
+        <div class="card" style = "border-radius: 10%; border-color: white;">
+          <img src="images/4.png" class="card-img-top" alt="...">
+          <div class="card-body">
+           
+           
+            <a href="#" class="btn btn-primary food_group">GRAINS</a>
+          </div>
+        </div>
+      </div>
+    
+
+      <div class="col-sm-2">
+        <div class="card" style = "border-radius: 10%; border-color: white;">
+          <img src="images/5.png" alt="">
+          <div class="card-body">
+      
+            
+            <a href="#" class="btn btn-primary food_group">PROTIEN</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    
     <div class="container pt-5">
-      <h1 class="title">IN MY KITCHEN: 8/29/21</h1>
-      <h3 class="sub_title pb-3">FOOD GROUP:DAIRY</h3>
+      <div class = "title">
+        <h1>My Kitchen</h1>
+        <hr id  ="underline_kitchen">
+      </div>
+      <h3 class="sub_title pb-3">Food Group: Dairy</h3>
+      
       <table class="table">
-        <thead class="thead-light">
+        <thead class="thead-light ">
           <tr>
             <th scope="col">#</th>
             <th scope="col">FOOD</th>
@@ -64,28 +145,28 @@
             <td>Whole Milk</td>
             <td>8/20/21</td>
             <td>9/10/21</td>
-            <td class="table-success"></td>
+            <td><button type="button" class="btn btn-success">VIEW MORE</button></td>
           </tr>
           <tr>
             <th scope="row">2</th>
             <td>Cheese</td>
             <td>8/20/21</td>
             <td>9/10/21</td>
-            <td class="table-success"></td>
+            <td><button type="button" class="btn btn-success">VIEW MORE</button></td>
           </tr>
           <tr>
             <th scope="row">3</th>
             <td>Sour Cream</td>
             <td>8/5/21</td>
             <td>8/30/21</td>
-            <td class="table-danger"></td>
+            <td><button type="button" class="btn btn-danger">VIEW MORE</button></td>
           </tr>
           <tr>
             <th scope="row">4</th>
             <td>Ice Cream</td>
             <td>8/5/21</td>
             <td>8/30/21</td>
-            <td class="table-danger"></td>
+            <td><button type="button" class="btn btn-danger">VIEW MORE</button></td>
           </tr>
         </tbody>
       </table>
