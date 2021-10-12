@@ -1,71 +1,71 @@
 body{
   
-        /* fallback for old browsers */
-        background: #ffffff;
-      
-        /* Chrome 10-25, Safari 5.1-6 */
-        background: -webkit-linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(226, 247, 228, 0.5));
-      
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(226, 247, 228, 0.5))
-      
+    /* fallback for old browsers */
+    background: #ffffff;
+  
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(226, 247, 228, 0.5));
+  
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(226, 247, 228, 0.5))
+  
 }
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+
 }
 header{
 
 }
 .navbar{
-    padding: 20px 0;
+padding: 20px 0;
 }
 .navbar-light{
-   
+
 }
 
 .nav-link{
-    font-size: 1.2em;
+font-size: 1.2em;
 }
 .navbar-light .navbar-nav .nav-item .nav-link:hover,
 .navbar-light .navbar-nav .nav-item.active .nav-link{
-    background: #E99D3E;
-    color: #fff
+background: #E99D3E;
+color: #fff
 }
 .sub_title{
-    text-align: center;
+text-align: center;
 }
 .title{
-    text-align: center;
+text-align: center;
 }
 
 .underline{
-    background-color: #E99D3E;
-    height: 4px;
-    width: 80px;
-    margin-left: 590px;
-    margin-top: 5px;
-    margin-bottom: 30px;
-   
+background-color: #E99D3E;
+height: 4px;
+width: 80px;
+margin-left: 590px;
+margin-top: 5px;
+margin-bottom: 30px;
+
 }
 
 #underline_kitchen{
-    background-color: #E99D3E;
-    height: 4px;
-    width: 80px;
-    margin-left: 530px;
-    margin-top: 5px;
-    margin-bottom: 30px;
-   
+background-color: #E99D3E;
+height: 4px;
+width: 80px;
+margin-left: 530px;
+margin-top: 5px;
+margin-bottom: 30px;
+
 }
 .food_group{
-    background-color: green;
-    border-color: green;
+background-color: green;
+border-color: green;
 }
 
 .add_item{
-    background-color: #E99D3E; 
-   
+background-color: #E99D3E; 
+
 }
