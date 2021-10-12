@@ -16,22 +16,14 @@ $.ajax({
             food_data +=  '<td>'+ value.opened + '</td>';
             p_date = value.purchase_date
             var_status = set_status(myDate, p_date);
+            console.log(var_status)
             if(var_status >= 5){
 
   
-               food_data += '<td>'+ document.getElementsByClassName("buttons") + '</td>';
+               food_data += '<td>'+ '<button type="button" class="btn btn-danger">VIEW MORE</div>' + '</td>';
+            }else{
+              food_data += '<td>'+ '<button type="button" class="btn btn-success">VIEW MORE</div>' + '</td>';
             }
-
-           
-            
-
-        
-
-            
-
-
-
-            
             food_data += '</tr>';
   
         });

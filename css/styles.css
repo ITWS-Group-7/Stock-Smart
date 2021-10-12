@@ -45,20 +45,15 @@ text-align: center;
 background-color: #E99D3E;
 height: 4px;
 width: 80px;
-margin-left: 590px;
-margin-top: 5px;
-margin-bottom: 30px;
-
+margin: auto;
 }
 
 #underline_kitchen{
 background-color: #E99D3E;
 height: 4px;
 width: 80px;
-margin-left: 530px;
-margin-top: 5px;
-margin-bottom: 30px;
-
+margin: auto;
+margin-bottom: 20px;
 }
 .food_group{
 background-color: green;
