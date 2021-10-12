@@ -69,3 +69,7 @@ border-color: green;
 background-color: #E99D3E; 
 
 }
+
+.buttons{
+    display: none;
+}
