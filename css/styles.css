@@ -1,0 +1,30 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    background-color: #79E14E;
+}
+.navbar{
+    padding: 20px 0;
+}
+.navbar-light{
+    background-color: #79E14E;
+}
+
+.nav-link{
+    font-size: 1.2em;
+}
+.navbar-light .navbar-nav .nav-item .nav-link:hover,
+.navbar-light .navbar-nav .nav-item.active .nav-link{
+    background: #79E14E;
+    color: #fff
+}
+.sub_title{
+    text-align: center;
+}
+.title{
+    text-align: center;
+}
