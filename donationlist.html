@@ -1,27 +1,100 @@
 <html>
     <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-      
-      
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </head>
     <style>
+      
       table, th, td {
         border:1px solid black;
+        text-align:center;
+        margin-left: auto;
+        margin-right: auto;
       }
-     
       #id01{
         display:none;
+        margin-left:0;
+        margin-right: 0;
+        text-align:center;
+        padding:20px;
+      }
+      button{
+        margin-left:0;
+        margin-right: 0;
+        text-align:center;
+        display: inline;
+      }
+      .button{
+        margin-left:0;
+        margin-right: 0;
+        text-align:center;
+      }
+      #button{
+        text-align:center;
+      }
+      body{
+        text-align:center;
+      }
+      .foodie{
+        padding-right:20px;
+        padding-left:20px;
+        margin-right:20px
+      }
+      .donatie{
+        padding-left:20px;
+        padding-right:20px;
       }
       </style>
 
+      <!-- Navbar-->
+    <header>
+      <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light">
+              <a class="navbar-brand" href="#"><img style="height: 80px;"
+                  src="images/logo.png"
+                /></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-lg-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">IN MY KITCHEN <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">GROCERY LIST</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">DONATION LIST</a>
+                    </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      PROFILE
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">My profile</a>
+                      <a class="dropdown-item" href="#">Switch Accont</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Log out</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+      </div>
+  </header>
 
+
+
+
+    <!--Graph-->
     <body>
-        <table style="width:80%" class = "table table-bordered">
+      <h1>Donation list</h1>
+        <table style="width:80%" class = "table  table-bordered">
           <thead class ="thead-light">
             <tr>
               <th scope = "col">Close to expire</th>
@@ -33,8 +106,83 @@
           </thead>
             <tbody>
             <tr >
-              <th scope="row">1</th>
-              <td>Pack of beef, 24oz</td>
+              <th scope="row">1 day</th>
+              <td>Beef</td>
+              <td>
+                <form>  
+                <label> Select Location </label>  
+                <br>
+                <select>  
+                <option value = "loc1"> Halal  
+                </option>  
+                <option value = "loc2"> Collar Grill 
+                </option>  
+                <option value = "loc3"> Thundershack
+                </option>  
+                <option value = "loc4"> Pizza Place
+                </option>  
+                </select>  
+                </form>
+              </td>
+              <td>12/31/2021</td>
+              <td>
+                <label>Donated</label>
+                <input type="checkbox" id="donate1" name="donate1" value="1">
+              <br></td>
+            </tr>
+            <tr >
+              <th scope="row">1 day</th>
+              <td>Chicken Tenderloins</td>
+              <td>
+                <form>  
+                <label> Select Location </label>  
+                <br>
+                <select>  
+                <option value = "loc1"> Halal  
+                </option>  
+                <option value = "loc2"> Collar Grill 
+                </option>  
+                <option value = "loc3"> Thundershack
+                </option>  
+                <option value = "loc4"> Pizza Place
+                </option>  
+                </select>  
+                </form>
+              </td>
+              <td>12/31/2021</td>
+              <td>
+                <label>Donated</label>
+                <input type="checkbox" id="donate1" name="donate1" value="1">
+              <br></td>
+            </tr>
+            <tr >
+              <th scope="row">1 day</th>
+              <td>Crabsticks</td>
+              <td>
+                <form>  
+                <label> Select Location </label>  
+                <br>
+                <select>  
+                <option value = "loc1"> Halal  
+                </option>  
+                <option value = "loc2"> Collar Grill 
+                </option>  
+                <option value = "loc3"> Thundershack
+                </option>  
+                <option value = "loc4"> Pizza Place
+                </option>  
+                </select>  
+                </form>
+              </td>
+              <td>12/31/2021</td>
+              <td>
+                <label>Donated</label>
+                <input type="checkbox" id="donate1" name="donate1" value="1">
+              <br></td>
+            </tr>
+            <tr >
+              <th scope="row">1 day</th>
+              <td>Small box of Mushrooms</td>
               <td>
                 <form>  
                 <label> Select Location </label>  
@@ -64,23 +212,68 @@
 
           <tr class="table-active"></tr>
 
-
+<!--
           <button onclick="document.getElementById('id01').style.display='block'"
-                  class="news-button">Add Item</button>
-                  <section id="id01" class = "news">
-                    <section onclick="document.getElementById('id01').style.display='none'"
+                  class="button" id="addbutton">Add Item</button>
+
+
+          <section id="id01">
+                    <section onclick="document.getElementById('id01').style.display='none'" onclick="document.getElementById('addbutton').style.display='block'"
                     ><button>Cancel Entry</button></section>
-
-
-            <table style="width:50%">
-            <tr class ="table-active">
-              <td>What Food<input type="text" name="foodie" id="foodie"/></td>
-              <td>Donate where?<input type="text" name="donatie" id="donatie"/></td>
-              </tr>
-              </table>
+            
+                    <table style="width:50%">
+            
+                      <tr class ="table">
+                        <td>What Food? <input type="text" name="foodie" id="foodie"/></td>
+                        <br>
+                        <td>Donate where? <input type="text" name="donatie" id="donatie"/></td>
+                        
+                      </tr>
+                    </table>
+                    <br>
               <button onclick="document.getElementById('id01').style.display='none'"id="submit">Submit</button>
+
                   </section>
             <br>
+-->
+               <!-- Button trigger modal -->
+        <button type="button" id="modal-label" data-toggle="modal" data-target="#exampleModal">
+          Add to Grocery List
+      </button>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+              <h5 class="modal-title">Add to Donation list</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+              </div>
+              <div class="modal-body">
+                <table style="width:50%">
+            
+                  <tr class ="table">
+                    <td>What Food? <input type="text" name="foodie" id="foodie"/></td>
+                    <br>
+                    <td>Donate where? <input type="text" name="donatie" id="donatie"/></td>
+                    
+                  </tr>
+                </table>
+              </div>
+              <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+          </div>
+          </div>
+      </div>
+      <script>
+          $('#myModal').on('shown.bs.modal', function () {
+              $('#myInput').trigger('focus')
+            })
+      </script>
  
 <tr class="table-primary"></tr>
 <tr class="table-secondary"></tr>
@@ -91,44 +284,12 @@
 <tr class="table-light"></tr>
 <tr class="table-dark"></tr>
         
-    
-        
-
 
 
     </body>
 
-    </html>
-    
-    
-   
-
-      
-
-
-
- 
-   
-     
     
     
  
 </html>
-           
-    </body>
-
-    
-    
-   
-
-      
-
-
-
  
-   
-     
-    
-    
- 
-</html>
