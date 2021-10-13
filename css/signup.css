@@ -50,6 +50,16 @@ margin-left:120%;
 }
 
 
+.card{
+    border-radius: 20%;
+    border-color: white;
+}
+
+.food_group{
+    box-shadow: brown;
+}
+
+
 
 
 
