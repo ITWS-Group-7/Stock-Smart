@@ -195,3 +195,9 @@ color: white;
         border-radius: 20px;
         margin-left: 5px;
     }
+    #modal-label {
+        float: right;
+        background-color: #fff;
+        text-decoration-color: black;
+        border-color:  #79E14E;
+    }
