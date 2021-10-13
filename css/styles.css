@@ -1,0 +1,203 @@
+body{
+  
+    /* fallback for old browsers */
+    background: #ffffff;
+  
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(226, 247, 228, 0.5));
+  
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(226, 247, 228, 0.5))
+  
+}
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+
+}
+header{
+
+}
+.navbar{
+padding: 20px 0;
+}
+.navbar-light{
+
+}
+
+
+
+
+.menu{
+    position: relative;
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+   padding: 0 10px;
+}
+
+.menu_profile{
+    position: relative;
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+   padding: 0 10px;
+}
+.menu:after{
+    content: "";
+    position: absolute;
+    background-color:#E99D3E ;
+    height: 3px;
+    width: 0;
+    left:0;
+    bottom:-10px;
+    transition: 0.3s;
+
+
+
+
+}
+
+.menu:hover:after{
+    width: 100%;
+
+
+}
+
+
+.menu:focus{
+    width: 100%;
+    font-weight: bold;
+}
+
+
+
+.menu_profile:focus{
+    width: 100%;
+    font-weight: bold;
+}
+
+
+
+.sub_title{
+text-align: center;
+}
+.title{
+text-align: center;
+}
+
+.underline{
+background-color: #E99D3E;
+height: 4px;
+width: 80px;
+margin: auto;
+}
+
+#underline_kitchen{
+background-color: #E99D3E;
+height: 4px;
+width: 80px;
+margin: auto;
+margin-bottom: 20px;
+}
+.food_group{
+background-color: green;
+border-color: green;
+}
+
+.food_group:hover{
+    background-color: green;
+    
+    }
+
+
+
+
+
+.add_item{
+background-color: #E99D3E; 
+color: white;
+
+}
+
+#food_group_dairy:focus{
+    background-color: #E99D3E;
+    border:#E99D3E;
+   }
+   
+   #food_group_fruits:focus{
+       background-color: #E99D3E;
+       border:#E99D3E;
+      }
+   
+   #food_group_vegetables:focus{
+       background-color: #E99D3E;
+       border: #E99D3E;
+      }
+   
+   
+      #food_group_grains:focus{
+       background-color: #E99D3E;
+       border:#E99D3E;
+      }
+   
+      #food_group_protien:focus{
+       background-color: #E99D3E;
+       border:#E99D3E;
+      }
+
+
+      .good_alerts{
+          background-color: #E2F7E4;
+      }
+
+      .bad_alerts{
+          background-color: #ff6b64;
+      }
+
+
+      
+        table {
+            background-color: white;
+           
+            border-collapse: separate;
+            border-spacing: 0;
+            box-shadow: 0px 0px 36px 15px rgba(0, 0, 0, 0.10);
+            
+          
+      }
+
+      .signup{
+        background: rgb(175,184,186);
+       
+        border:none;
+        border-radius: 20px;
+        background: rgba(75, 75, 74, 1.0);
+        
+        background: linear-gradient(to right, rgba(75, 75, 74, 1.0), rgba(0, 0, 0, 1.0));
+
+
+    
+
+
+
+
+
+
+      }
+
+
+      .login{
+        background: rgb(175,184,186);
+        background: linear-gradient(to right, rgba(75, 75, 74, 1.0), rgba(0, 0, 0, 1.0));
+        border:none;
+        border-radius: 20px;
+        margin-left: 5px;
+    }
+    #modal-label {
+        float: right;
+        background-color: #fff;
+        text-decoration-color: black;
+        border-color:  #79E14E;
+    }

@@ -1,0 +1,67 @@
+*{
+    box-sizing: border-box;
+    
+}
+
+.row{
+    background:white;
+    border-radius: 30px;
+    
+}
+
+
+.col_rectangle{
+    background: #32B92F;
+    width: 523px;
+height: 500px;
+border-radius: 30px;
+}
+
+hr{
+    height: 4px;
+    width: 100px;
+    background-color:#32B92F ;
+    transition: all 0.3s ease-in-out;
+    border:none;
+}
+
+
+.top_bar{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+   
+}
+
+.top_bar li{
+    display: inline-block;
+    text-align: center;
+}
+
+.top_bar li a{
+    display: inline-block;
+    padding: 5px 0px; 
+    text-decoration: none;
+    color:black;
+
+}
+
+.login:hover ~ hr{
+margin-left:120%;
+}
+
+
+.card{
+    border-radius: 20%;
+    border-color: white;
+}
+
+.food_group{
+    box-shadow: brown;
+}
+
+
+
+
+
+
+
