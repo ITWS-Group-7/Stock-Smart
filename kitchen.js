@@ -1,7 +1,7 @@
 let dateObj = new Date();
 let myDate = ((dateObj.getMonth() + 1)+ "/" + (dateObj.getUTCDate()+"/"+dateObj.getUTCFullYear()));
 document.getElementById("date").innerHTML = myDate;
-
+food_date = []
 $.ajax({
     url: "data.json",
     dataType: 'json',
@@ -11,18 +11,26 @@ $.ajax({
         $.each(data,function(key, value){
             food_data += '<tr>';
             food_data += '<td>' + value.food+ '</td>';
+            
+            
+           
             food_data += '<td>' + value.purchase_date + '</td>';
             food_data += '<td>'+ value.expiration_date + '</td>';
             food_data +=  '<td>'+ value.opened + '</td>';
             p_date = value.purchase_date
             var_status = set_status(myDate, p_date);
-            console.log(var_status)
+         
             if(var_status >= 5){
+              
 
   
-               food_data += '<td>'+ '<button type="button" class="btn btn-danger">VIEW MORE</div>' + '</td>';
-            }else{
-              food_data += '<td>'+ '<button type="button" class="btn btn-success">VIEW MORE</div>' + '</td>';
+               food_data += '<td>'+ '<button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#warning_modal">VIEW MORE</button>' + '</td>';
+
+
+
+            
+              }else{
+              food_data += '<td>'+ '<button type="button" class="btn btn-success" data-toggle = "modal" data-target = "#success_modal">VIEW MORE</button>' + '</td>';
             }
             food_data += '</tr>';
   
@@ -49,5 +57,9 @@ $.ajax({
         return diffInDays;
       }
       
+
+   
+
+
 
 

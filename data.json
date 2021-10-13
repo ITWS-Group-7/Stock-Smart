@@ -3,7 +3,7 @@
     "food":"Whole Milk" ,
     "purchase_date":"10/11/2021",
     "expiration_date": "10/24/2021",
-    "opened" : "no",
+    "opened" : "yes",
     "status":"bad"
 
     
@@ -12,7 +12,7 @@
     "food":"Cheese" ,
     "purchase_date":"10/11/2021",
     "expiration_date": "10/30/2021",
-    "opened" : "no",
+    "opened" : "yes",
     "status":"bad"
 
     

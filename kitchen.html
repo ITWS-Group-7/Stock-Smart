@@ -28,16 +28,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav ml-lg-auto">
                     <li class="nav-item active">
-                      <a class="nav-link" href="#">In My Kitchen <span class="sr-only">(current)</span></a>
+                      <a class="nav-link menu"  href="#InMyKitchen">In My Kitchen <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Grocery List</a>
+                      <a class="nav-link menu" href="#GroceryList">Grocery List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Donation List</a>
+                        <a class="nav-link menu" href="#DonationList">Donation List</a>
                       </li>
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <a class="nav-link dropdown-toggle menu_profile" href="#Profile" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "font-size: 18px;">
                         Profile
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -47,9 +47,12 @@
                         <a class="dropdown-item" href="#">Log out</a>
                       </div>
                     </li>
+                   <hr>
                   </ul>
                 </div>
+            
               </nav>
+             
         </div>
     </header>
 
@@ -67,7 +70,7 @@
 
           <div class="card-body">
          
-            <a href="#" class="btn btn-primary food_group">DAIRY</a>
+            <a href="#" class="btn btn-primary food_group" id = "food_group_dairy">DAIRY</a>
           </div>
         </div>
       </div>
@@ -78,7 +81,7 @@
          
          
            
-            <a href="#" class="btn btn-primary food_group">FRUITS</a>
+            <a href="#" class="btn btn-primary food_group" id = "food_group_fruits">FRUITS</a>
           </div>
         </div>
       </div>
@@ -90,7 +93,7 @@
            
             
             
-            <a href="#" class="btn btn-primary food_group">VEGETABLES</a>
+            <a href="#" class="btn btn-primary food_group" id = "food_group_vegetables">VEGETABLES</a>
           </div>
         </div>
         </div>
@@ -102,7 +105,7 @@
           <div class="card-body">
            
            
-            <a href="#" class="btn btn-primary food_group">GRAINS</a>
+            <a href="#" class="btn btn-primary food_group" id  = "food_group_grains">GRAINS</a>
           </div>
         </div>
       </div>
@@ -114,7 +117,7 @@
           <div class="card-body">
       
             
-            <a href="#" class="btn btn-primary food_group">PROTIEN</a>
+            <a href="#" class="btn btn-primary food_group" id = "food_group_protien">PROTIEN</a>
           </div>
         </div>
       </div>
@@ -129,11 +132,11 @@
         <h1>My Kitchen</h1>
         <hr id  ="underline_kitchen">
       </div>
-      <h3 class="sub_title pb-3">Food Group: Dairy</h3>
-      <h3  class="sub_title pb-3" id="date"></h3>
+     
+      <h4  class="sub_title pb-3" id="date"></h4>
       
 
-      <table class="table" id = "food_table">
+      <table class="table " id = "food_table">
      
           <tr>
            
@@ -142,19 +145,144 @@
             <th scope="col">EXPIRATION</th>
             <th scope = "col">OPENED</th>
             <th scope="col">STATUS</th>
+
+            
           </tr>
 
-          <div class = "buttons">
-          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">VIEW MORE</button>
-        </div>
+          
        
-          
-          
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="success_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header good_alerts">
+        <h5 class="modal-title" id="success">ITEM INFORMATION</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Whole Milk was purchased two days ago. It is reccomended that you finish this item within the next 5 days or consider donating it. </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary">Keep on List</button>
+        <button type="button" class="btn btn-primary">Donate</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
 
-      </table>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="warning_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bad_alerts">
+        <h5 class="modal-title" id="failure">ITEM INFORMATION</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Sour cream was purchased 11 days ago. This item is unopened and will expire in 4 days. It is reccomended that you donate or finish the item.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" >Keep on List</button>
+        <button type="button" class="btn btn-primary">Donate</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+      <div class = "table_footer">
+
+
+        <button type="button" class="btn add_item" data-toggle="modal" data-target="#item_modal">ADD ITEM</button>
+
+        <div class="modal fade" id="item_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add an Item</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+
+                <form>
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1">Food</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Food Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select Food Group</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option>Dairy</option>
+                      <option>Fruits</option>
+                      <option>Vegetables</option>
+                      <option>Grains</option>
+                      <option>Protien</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1">Purchase Date</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Purchase Date MM-DD-YY">
+                  </div>
+
+
+
+
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1">Expiration Date</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Expiration Date MM-DD-YY">
+
+                    
+                   
+                
+                  </div>
+
+
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1">Item Opened</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter yes or no">
+                   
+                  </div>
+
+
+        </div>
+              <div class="modal-footer">
+               
+                <button type="button" class="btn add_item">Add Item</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+      </div>
 
 
 
