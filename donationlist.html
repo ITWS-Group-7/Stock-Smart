@@ -12,6 +12,27 @@
       <link rel="stylesheet" href="css/styles.css">
     </head>
   <body>
+    <style>
+      
+      table, th, td {
+        border:1px solid black;
+        text-align:center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      /* #id01{
+        display:none;
+        margin-left:0;
+        margin-right: 0;
+        text-align:center;
+        padding:20px;
+      } */
+      body{
+        text-align:center;
+      }
+
+      </style>
+
       <!-- Navbar-->
       <header>
         <div class="container">
@@ -80,83 +101,122 @@
 
     <!--Graph-->
     <div class="container">
-        <h1 class="title">MY GROCERY LIST:</h1> <h4  class="sub_title pb-3" id="date"></h4>
-        <table class="table">
-        <thead class="thead-light">
+      <h1>Donation list</h1>
+        <table class = "table  table-bordered">
+          <thead class ="thead-light">
             <tr>
-            <th scope="col">#</th>
-            <th scope="col">FOOD</th>
-            <th scope="col">FOOD GROUP</th>
-            <th scope="col">BOUGHT</th>
-            <th scope="col">ADD TO KITCHEN</th>
+              <th scope = "col">Close to expire</th>
+              <th scope = "col">Food</th>
+              <th scope = "col">Location</th>
+              <th scope = "col">Donate By</th>
+              <th scope = "col">Donated</th>
             </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <th scope="row">1</th>
-            <td>Almond Milk</td>
-            <td>Dairy</td>
-            <td><div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault"></label>
-            </div>
-            </td>
-            <td>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault"></label>
-                </div>
-            </td>
+          </thead>
+            <tbody>
+            <tr >
+              <th scope="row">1 day</th>
+              <td>Beef</td>
+              <td>
+                <form>  
+                <label> Select Location </label>  
+                <br>
+                <select>  
+                <option value = "loc1"> Halal  
+                </option>  
+                <option value = "loc2"> Collar Grill 
+                </option>  
+                <option value = "loc3"> Thundershack
+                </option>  
+                <option value = "loc4"> Pizza Place
+                </option>  
+                </select>  
+                </form>
+              </td>
+              <td>12/31/2021</td>
+              <td>
+                <label>Donated</label>
+                <input type="checkbox" id="donate1" name="donate1" value="1">
+              <br></td>
             </tr>
-            <tr>
-            <th scope="row">2</th>
-            <td>Tomatoes</td>
-            <td>Vegetables</td>
-            <td><div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault"></label>
-            </div>
-            </td>
-            <td>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault"></label>
-                </div>
-            </td>
+            <tr >
+              <th scope="row">1 day</th>
+              <td>Chicken Tenderloins</td>
+              <td>
+                <form>  
+                <label> Select Location </label>  
+                <br>
+                <select>  
+                <option value = "loc1"> Halal  
+                </option>  
+                <option value = "loc2"> Collar Grill 
+                </option>  
+                <option value = "loc3"> Thundershack
+                </option>  
+                <option value = "loc4"> Pizza Place
+                </option>  
+                </select>  
+                </form>
+              </td>
+              <td>12/31/2021</td>
+              <td>
+                <label>Donated</label>
+                <input type="checkbox" id="donate1" name="donate1" value="1">
+              <br></td>
             </tr>
-            <tr>
-            <th scope="row">3</th>
-            <td>Apple</td>
-            <td>Fruit</td>
-            <td><div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault"></label>
-            </div>
-            </td>
-            <td><div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault"></label>
-            </div>
-            </td>
+            <tr >
+              <th scope="row">1 day</th>
+              <td>Crabsticks</td>
+              <td>
+                <form>  
+                <label> Select Location </label>  
+                <br>
+                <select>  
+                <option value = "loc1"> Halal  
+                </option>  
+                <option value = "loc2"> Collar Grill 
+                </option>  
+                <option value = "loc3"> Thundershack
+                </option>  
+                <option value = "loc4"> Pizza Place
+                </option>  
+                </select>  
+                </form>
+              </td>
+              <td>12/31/2021</td>
+              <td>
+                <label>Donated</label>
+                <input type="checkbox" id="donate1" name="donate1" value="1">
+              <br></td>
             </tr>
-            <tr>
-            <th scope="row">4</th>
-            <td></td>
-            <td></td>
-            <td><div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault"></label>
-            </div>
-            </td>
-            <td><div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault"></label>
-            </div>
-            </td>
+            <tr >
+              <th scope="row">1 day</th>
+              <td>Small box of Mushrooms</td>
+              <td>
+                <form>  
+                <label> Select Location </label>  
+                <br>
+                <select>  
+                <option value = "loc1"> Halal  
+                </option>  
+                <option value = "loc2"> Collar Grill 
+                </option>  
+                <option value = "loc3"> Thundershack
+                </option>  
+                <option value = "loc4"> Pizza Place
+                </option>  
+                </select>  
+                </form>
+              </td>
+              <td>12/31/2021</td>
+              <td>
+                <label>Donated</label>
+                <input type="checkbox" id="donate1" name="donate1" value="1">
+              <br></td>
             </tr>
-        </tbody>
-        </table>
+          </tbody>
         </div>
+          
+          </table>
       <div class="container">
           <button type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#exampleModal">
             Add to Donation List
@@ -166,32 +226,21 @@
             <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title">Add to Grocery List</h5>
+                <h5 class="modal-title">Add to Donation list</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                          <label for="food">Food</label>
-                          <input class="form-control" type="text" placeholder="Input food item">
-                        </div>
-                        <div class="form-group">
-                            <label for="food-group">Food Group</label>
-                            <input class="form-control" type="text" placeholder="Input food group">
-                            <small id="emailHelp" class="form-text text-muted">Food group options are fruits, vegetables, grains, or proteins</small>
-                          </div>
-                        <div class="form-check">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Bought</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Add to Kitchen</label>
-                          </div>
-                        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-                      </form>
+                  <table style="width:50%">
+              
+                    <tr class ="table">
+                      <td>What Food? <input type="text" name="foodie" id="foodie"/></td>
+                      <br>
+                      <td>Donate where? <input type="text" name="donatie" id="donatie"/></td>
+                      
+                    </tr>
+                  </table>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -200,8 +249,28 @@
             </div>
             </div>
         </div>
+
+      </div>
+    
+      <!-- Button trigger modal -->
+
+
+ 
+<tr class="table-primary"></tr>
+<tr class="table-secondary"></tr>
+<tr class="table-success"></tr>
+<tr class="table-danger"></tr>
+<tr class="table-warning"></tr>
+<tr class="table-info"></tr>
+<tr class="table-light"></tr>
+<tr class="table-dark"></tr>
         
+
+
     </body>
-    <script src = "kitchen.js"></script>
+
+    
+    
+ 
 </html>
  
