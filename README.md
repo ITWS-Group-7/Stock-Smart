@@ -1,1 +1,2 @@
 # term-project
+This is the progress made from proposal submission. Each of us worked on pages on the website and setup the interface to give users an idea of what they should expect when interacting with the website. Some special features are that buttons where users can add items to the list of the page they're on will bring up a pop-up form where they can fill in the fields and update their lists as opposed to taking the user to an entirely new page. This was created using the modal feature in bootstrap.
