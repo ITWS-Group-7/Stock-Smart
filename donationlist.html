@@ -30,6 +30,9 @@
       body{
         text-align:center;
       }
+      container{
+        text-align:left;
+      }
 
       </style>
 
@@ -102,6 +105,7 @@
     <!--Graph-->
     <div class="container">
       <h1>Donation list</h1>
+      <div class="modal-body">
         <table class = "table  table-bordered">
           <thead class ="thead-light">
             <tr>
@@ -215,44 +219,48 @@
             </tr>
           </tbody>
         </div>
+        </div>
           
           </table>
-      <div class="container">
-          <button type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#exampleModal">
-            Add to Donation List
-          </button>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title">Add to Donation list</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body">
-                  <table style="width:50%">
-              
-                    <tr class ="table">
-                      <td>What Food? <input type="text" name="foodie" id="foodie"/></td>
-                      <br>
-                      <td>Donate where? <input type="text" name="donatie" id="donatie"/></td>
-                      
-                    </tr>
-                  </table>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-dark">Submit</button>
-                </div>
-            </div>
-            </div>
-        </div>
 
-      </div>
     
       <!-- Button trigger modal -->
+      <div class="container">
+        <button type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#exampleModal">
+          Add to Donation List
+        </button>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+              <h5 class="modal-title">Add to Donation List</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+              </div>
+              <div class="modal-body">
+                  <form>
+                      <div class="form-group">
+                        <label for="food">Food</label>
+                        <input class="form-control" type="text" placeholder="Input food item">
+                      </div>
+                      <div class="form-group">
+                          <label for="food-group">Food Group</label>
+                          <input class="form-control" type="text" placeholder="Input location for Donation">
+                          <small id="emailHelp" class="form-text text-muted">Please put down the specific name or location</small>
+                        </div>
+
+                      <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                    </form>
+              </div>
+              <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-dark">Submit</button>
+              </div>
+          </div>
+          </div>
+      </div>
 
 
  
