@@ -201,12 +201,6 @@ color: white;
         text-decoration-color: black;
         border-color:  #79E14E;
     }
-
-    .row1{
-        display: flex;
-    }
-
-
     .change{
         background-color: green;
         border:green;
