@@ -9,7 +9,7 @@ $.ajax({
     success: function(data){
         var food_data = '';
         $.each(data,function(key, value){
-            food_data += '<tr>';
+            food_data += '<tr id="hvr-grow-shadow">';
             food_data += '<td>' + value.food+ '</td>';
             
             
