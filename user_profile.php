@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+// If the user is not logged in redirect to the login page...
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: login.php');
+	exit;
+}
+?>
+
+
+
+
+
 <!doctype html>
 <html lang="en">
    <head>
@@ -7,6 +21,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <link rel="stylesheet" href="css/styles.css">
+      <script type="text/javascript" src="user_profile.js"></script>
       <title>StockSmart</title>
    </head>
    <header>
@@ -44,13 +59,70 @@
                </ul>
             </div>
             <div class = "signup_login">
-               <a href="signup.html" class="btn btn-primary signup">Sign Up</a>
-               <a href="login.html" class="btn btn-primary login" >Login</a>
+            
+               <a href="includes/logout.inc.php" class="btn btn-primary login" >Logout</a>
             </div>
          </nav>
       </div>
    </header>
    <body>
+
+
+   <?php
+    $id = $_SESSION['id'];
+    $dbOk = false;
+    @ $db = new mysqli('localhost', 'root', '', 'stock_smart');
+    if ($db->connect_error) {
+        echo '<div class="messages">Could not connect to the database. Error: ';
+        echo $db->connect_errno . ' - ' . $db->connect_error . '</div>';
+      } else {
+        $dbOk = true; 
+      }
+    if ($dbOk) {
+        $query = "select * from user_profile where userid=$id";
+        $result = $db->query($query);
+        $numRecords = $result->num_rows;
+        if ($numRecords > 0) {
+            $record = $result->fetch_assoc();
+            $first = $record['first_name'];
+            $last = $record['last_name'];
+          
+         
+            $email = $record['email'];
+            $pass = $record['password'];
+            $image = $record['profile_image'];
+
+
+            if (strlen($image) > 2){
+               $image = $record['profile_image'];
+             }
+             else { 
+               $image = 'profile.png';
+             }
+            
+             $image_x = 'images/' . $image;
+          
+           
+            }
+           
+        else {
+            exit("User not found");
+        }
+       
+      }
+      $db->close();
+
+?>
+
+
+
+
+
+
+
+
+
+
       <div class = "container">
          <div class="card-account-information">
             <div class="card-header">
@@ -62,7 +134,7 @@
                      <p>Email</p>
                   </div>
                   <div class = "col">
-                     <p>doej@gmail.com</p>
+                  <p><?php echo $email ?> </p>
                   </div>
                   <div class = "col">
                   </div>
@@ -78,18 +150,16 @@
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
                            </div>
                            <div class="modal-body">
-                              <form>
+                              <form action = "update_user_email.php" method = "post">
                                  <div class="form-group">
-                                    <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="doej@gmail.com">
+                                    <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" name = "email" placeholder="<?php echo $email ?> ">
                                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                  </div>
                                  <div class="form-group">
-                                    <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Email confirmation">
+                                    <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Email confirmation" name ="email_update">
                                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                  </div>
-                                 <div class="form-group">
-                                    <input type="password" class="form-control" id="InputPassword" placeholder="Password">
-                                 </div>
+                               
                                  <button type="submit" class="btn btn-primary float-right ml-2 change" >Cancel</button>
                                  <button type="submit" class="btn btn-primary float-right change" >Save</button>
                               </form>
@@ -106,9 +176,10 @@
          <div class="card-body">
          <div class  = "row">
             <div class = "col">
-               <p>Password</p>
+            <p>Password </p>
             </div>
             <div class = "col">
+            <p><?php echo $pass ?> </p>
             </div>
             <div class = "col">
             </div>
@@ -123,15 +194,15 @@
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
                            </div>
                            <div class="modal-body">
-                              <form>
+                              <form method = "post" action = "update_user_password.php">
                                  <div class="form-group">
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Current Password">
+                                    <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $pass ?> " name = "password">
                                  </div>
                                  <div class="form-group">
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="New Password">
+                                    <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="New Password" name = "password_update">
                                  </div>
                                  <div class="form-group">
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm new password">
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm new password" name = "password_confirm">
                                  </div>
                                  <button type="submit" class="btn btn-primary float-right ml-2 change" >Cancel</button>
                                  <button type="submit" class="btn btn-primary float-right change" >Save</button>
@@ -156,7 +227,7 @@
                   <p>First Name</p>
                </div>
                <div class = "col">
-                  <p>John</p>
+                  <p><?php echo $first ?> </p>
                </div>
                <div class = "col">
               </div>
@@ -171,12 +242,12 @@
                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
                               </div>
                               <div class="modal-body">
-                                 <form>
+                                 <form method = "post" action = "update_first_last.php">
                                     <div class="form-group">
-                                       <input type="email" class="form-control" id="firstName" aria-describedby="emailHelp" placeholder="First name">
+                                       <input type="text" class="form-control" id="firstName"  placeholder= "<?php echo $first ?> " name = "first_name">
                                     </div>
                                     <div class="form-group">
-                                       <input type="email" class="form-control" id="lastName" aria-describedby="emailHelp" placeholder="Last name">
+                                       <input type="text" class="form-control" id="lastName"  placeholder= "<?php echo $last ?> "  name = "last_name">
                                     </div>
                                     <button type="submit" class="btn btn-primary float-right ml-2 change">Cancel</button>
                                     <button type="submit" class="btn btn-primary float-right change">Save</button>
@@ -195,7 +266,7 @@
                   <p>Last Name</p>
                </div>
                <div class = "col">
-                  <p>Doe </p>
+               <p><?php echo $last ?> </p>
                </div>
                <div class = "col">
               </div>
@@ -222,6 +293,55 @@
             </div>
          </div>
       </div>
+
+
+
+
+      <div class="card-personal-information">
+
+      <form action="update_image.php" method = "post">
+         <div class="card-header">
+            Profile Picture
+         </div>
+         <div class="card-body">
+         <div class="row">
+      <div class="col-25">
+        <label for="major">Current Image: </label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="image1" name="image1" disabled value = "<?php echo $image ?>">
+      </div>
+  </div>
+
+
+
+
+  <div class="row">
+      <div class="col-25">
+        <label for="image">Change Image: </label>
+      </div>
+      <div class="col-75">
+		<input type="file" id="image" name="file" title = "<?php echo $image ?>">
+      </div>
+  </div>
+
+            <div class = "row">
+              <button type="submit" name = "submit" >Change</button>
+              </div>
+   </form>
+</div>
+
+
+
+         </div>
+      </div>
+
+
+
+
+
+
+
     </div>
       </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

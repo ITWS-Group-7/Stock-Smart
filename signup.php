@@ -13,7 +13,7 @@
   <body>
     <section class="vh-100" style="background-color: green;">
         <div class="container py-5 h-100">
-          <div class="row d-flex justify-content-center align-items-center h-150">
+          <div class="row d-flex justify-content-center align-items-center h-120">
             <div class="col col-xl-10">
               <div class="card" style="border-radius: 1rem;">
                 <div class="row ">
@@ -29,17 +29,17 @@
                   <div class="col-md-6 col-lg-7 d-flex align-items-center">
                     <div class="card-body p-4 p-lg-5 text-black">
       
-                      <form>
+                      <form action = "../includes/login.inc.php" method ="POST">
       
                         <div class="wrapper ">
                           <ul class = "top_bar">
                           <li class = "sign_up">
-                              <a href="signup.html">SIGN UP</a>
+                              <a href="signup.php">SIGN UP</a>
                           </li>
 
 
                           <li class = "login">
-                            <a href="login.html">LOGIN</a>
+                            <a href="login.php">LOGIN</a>
                         </li>
 
                         <hr>
@@ -51,20 +51,32 @@
                       
                         
                         <div class="form-outline mb-4">
-                          <input type="email" id="form2Example17" class="form-control form-control-lg" placeholder="Username" />
+                          <input type="text" id="form2Example17" class="form-control form-control-lg" placeholder="First Name" name = "firstnm" />
                           
                         </div>
       
                         <div class="form-outline mb-4">
-                          <input type="password" id="form2Example27" class="form-control form-control-lg" placeholder="Password" />
+                          <input type="text" id="form2Example27" class="form-control form-control-lg" placeholder="Last Name" name = "lastnm" />
                           
                         </div>
 
 
 
-                        
+                        <div class="form-outline mb-4">
+                            <input type="email" id="form2Example27" class="form-control form-control-lg" placeholder="Email" name = "email"/>
+                            
+                          </div>
+
+
+
+                          <div class="form-outline mb-4">
+                            <input type="password" id="form2Example27" class="form-control form-control-lg" placeholder="Password" name = "pw"/>
+                            
+                          </div>
+      
                         <div class="pt-1 mb-4">
-                          <a class="btn btn-dark btn-lg btn-block" href="kitchen.html" role="button">LOGIN</a>
+                          <a class="btn btn-dark btn-lg btn-block" href="kitchen.html" role="button">SIGN IN</a>
+                         
                         </div>
       
                     
