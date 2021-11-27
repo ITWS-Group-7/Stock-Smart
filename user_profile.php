@@ -326,7 +326,7 @@ if (!isset($_SESSION['loggedin'])) {
   </div>
 
             <div class = "row">
-              <button type="submit" name = "submit" >Change</button>
+              <button type="submit" class="btn btn-primary change" name = "submit" >Change</button>
               </div>
    </form>
 </div>

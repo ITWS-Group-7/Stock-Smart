@@ -40,9 +40,8 @@
 
                           <li class = "login">
                             <a href="login.php">LOGIN</a>
+                            <hr class="hr_v2">
                         </li>
-
-                        <hr>
 
                         </ul>
 
@@ -64,7 +63,7 @@
 
                         
                         <div class="pt-1 mb-4">
-                        <button type="submit" class="btn" name= "submit">LOGIN</button>
+                        <button type="submit" class="btn btn-dark btn-lg btn-block" name= "submit">LOGIN</button>
                         </div>
       
                     

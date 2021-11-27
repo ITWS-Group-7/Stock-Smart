@@ -24,7 +24,13 @@ hr{
     transition: all 0.3s ease-in-out;
     border:none;
 }
-
+.hr_v2{
+    height: 4px;
+    width: 100px;
+    background-color:#32B92F ;
+    transition: all 0.3s ease-in-out;
+    border:none;
+}
 
 .top_bar{
     display: grid;
@@ -46,9 +52,8 @@ hr{
 }
 
 .login:hover ~ hr{
-margin-left:120%;
+    margin-left:120%;
 }
-
 
 .card{
     border-radius: 20%;
