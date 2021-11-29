@@ -58,4 +58,25 @@ else{
     exit;
 }
 }
+
+
+
+
+
+header ("refresh: 1; url = user_profile.php");
+exit;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>

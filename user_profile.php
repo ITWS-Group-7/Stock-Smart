@@ -65,6 +65,9 @@ if (!isset($_SESSION['loggedin'])) {
          </nav>
       </div>
    </header>
+   
+   
+   
    <body>
 
 
@@ -93,17 +96,17 @@ if (!isset($_SESSION['loggedin'])) {
             $image = $record['profile_image'];
 
 
+
             if (strlen($image) > 2){
                $image = $record['profile_image'];
              }
              else { 
                $image = 'profile.png';
              }
-            
              $image_x = 'images/' . $image;
-          
+
+        }
            
-            }
            
         else {
             exit("User not found");
@@ -299,18 +302,27 @@ if (!isset($_SESSION['loggedin'])) {
 
       <div class="card-personal-information">
 
-      <form action="update_image.php" method = "post">
+      <form action="update_image.php" method = "post"  enctype="multipart/form-data">
          <div class="card-header">
             Profile Picture
          </div>
-         <div class="card-body">
+        
          <div class="row">
       <div class="col-25">
+
+
+
+
         <label for="major">Current Image: </label>
       </div>
       <div class="col-75">
         <input type="text" id="image1" name="image1" disabled value = "<?php echo $image ?>">
       </div>
+
+
+      <div class = "col-75">
+      <img class = "resize" src=<?php echo $image_x ?> style="width:80%; float: left; margin-left: 150px; margin-top: 40px;">
+   </div>
   </div>
 
 
@@ -322,19 +334,23 @@ if (!isset($_SESSION['loggedin'])) {
       </div>
       <div class="col-75">
 		<input type="file" id="image" name="file" title = "<?php echo $image ?>">
+     
       </div>
   </div>
 
             <div class = "row">
               <button type="submit" class="btn btn-primary change" name = "submit" >Change</button>
               </div>
+
+           
    </form>
+
+   
+</div>
 </div>
 
 
-
-         </div>
-      </div>
+      
 
 
 
@@ -342,8 +358,7 @@ if (!isset($_SESSION['loggedin'])) {
 
 
 
-    </div>
-      </div>
+   
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
