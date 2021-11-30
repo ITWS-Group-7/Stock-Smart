@@ -9,8 +9,8 @@
     if(isset($_POST['insert_grocery'])) {
         $sql_insert_grocery = "INSERT INTO grocery (food_name, food_group, username, bought);
         VALUES ($food, '$foodgroup', $bought, 'TBA');";
-        $stmt = $dbconn->query($sql_insert_grocery);
-        $prod_arr = $stmt->fetchAll();
+        $stmt = $conn->query($sql_insert_grocery);
+        $prod_arr = $stmt->fetch();
         header("Location: grocery.html?insert_grocery=success");
     }
 
