@@ -23,7 +23,12 @@ catch(PDOException $e)
     {    
      $food = $_POST['food'];
      $group = $_POST['group'];
-     $sql = "INSERT INTO donation (`id`, `food_name`, `userid`, `expiration_date`, `donated`) VALUES (NULL, '$food', '1', '2021-12-08 09:18:59', '1');";
+     if(isset($_POST['donate'])){
+      $donate = 1;
+      } else {
+      $donate = 0;
+      }
+     $sql = "INSERT INTO donation (`id`, `food_name`, `userid`, `expiration_date`, `donated`) VALUES (NULL, '$food', '1', '2021-12-08 09:18:59', '$donate');";
      $stmt = $dbconn->query($sql);
      if ($stmt) {
         echo "New record has been added successfully !";
@@ -162,7 +167,7 @@ $query = $dbh->query('SELECT * FROM donation');
             echo "<td>" . $row['food_name'] ."</td>";
             echo "<td>" . $row['expiration_date'] . "</td>";
             echo '<td><div class="form-check">';
-            if($row['donated'] =1){
+            if($row['donated'] ==1){
               echo "Yes";
             } else {
               echo "No";
@@ -209,6 +214,10 @@ $query = $dbh->query('SELECT * FROM donation');
                           <label for="food-group">Food Group</label>
                           <input class="form-control" name = 'group' type="text" placeholder="Input location for Donation">
                           <small id="emailHelp" class="form-text text-muted">Please put down the specific name or location</small>
+                        </div>
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input" name ='donate' id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1">Donate?</label>
                         </div>
 
                       <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
