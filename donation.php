@@ -177,6 +177,37 @@ catch(PDOException $e)
               <br></td>
             </tr>
             <tr >
+            <?php
+            while ($row = $query->fetch()) 
+            {
+              
+            echo '<th scope="row">1 day</th>';
+            echo "<td>". $row['id'] ."</td>";
+            echo '<td>';
+            echo '<form>';
+            echo '<label> Select Location </label>  ';
+                <br>
+                <select>  
+                <option value = "loc1"> Halal  
+                </option>  
+                <option value = "loc2"> Collar Grill 
+                </option>  
+                <option value = "loc3"> Thundershack
+                </option>  
+                <option value = "loc4"> Pizza Place
+                </option>  
+                </select>  
+                </form>
+              </td>
+              <td>12/31/2021</td>
+              <td>
+                <label>Donated</label>
+                <input type="checkbox" id="donate1" name="donate1" value="1">
+              <br></td>
+            </tr>
+            <tr >
+            }
+            ?>
               <th scope="row">1 day</th>
               <td>Chicken Tenderloins</td>
               <td>

@@ -32,6 +32,9 @@ catch(PDOException $e)
      }
     
 }
+
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+$query = $db->query('SELECT * FROM pet');
 ?>
 <html>
     <head>
@@ -144,6 +147,28 @@ catch(PDOException $e)
             </td>
             </tr>
             <tr>
+            <?php
+            while ($row = $query->fetch()) 
+            {
+              echo "<tr>";
+              echo "<th scope='row'>1</th>";
+            echo "<td>" . $row['id'] ."</td>";
+            echo "<td>" . $row['name'] . "</td>";
+            echo "<td>" . $row['price'] . "</td>";
+            echo '<td><div class="form-check">';
+            echo '<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">';
+            echo '<label class="form-check-label" for="flexCheckDefault"></label>';
+            echo '</div>';
+            echo '</td>';
+            echo '<td>';
+            echo '<div class="form-check">';
+                   echo' <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">';
+                   echo ' <label class="form-check-label" for="flexCheckDefault"></label>';
+            echo '</div>';
+            echo '</td>';
+            echo "</tr>";
+            }
+            ?>
             <th scope="row">2</th>
             <td>Tomatoes</td>
             <td>Vegetables</td>
