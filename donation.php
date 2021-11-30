@@ -23,7 +23,7 @@ catch(PDOException $e)
     {    
      $food = $_POST['food'];
      $group = $_POST['group'];
-     $sql = "INSERT INTO donation (`id`, `food_name`, `username`, `expiration_date`, `donated`) VALUES (NULL, '$food', 'test', '2021-12-08 09:18:59', '1');";
+     $sql = "INSERT INTO donation (`id`, `food_name`, `userid`, `expiration_date`, `donated`) VALUES (NULL, '$food', '1', '2021-12-08 09:18:59', '1');";
      $stmt = $dbconn->query($sql);
      if ($stmt) {
         echo "New record has been added successfully !";

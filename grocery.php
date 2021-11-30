@@ -29,8 +29,30 @@ catch(PDOException $e)
       } else {
       $bought = '0';
       }
-     $sql = "INSERT INTO grocery (id,food_name,bought,food_group,username) VALUES (NULL,'$food','$bought','$group','test');";
+     $sql = "INSERT INTO grocery (id,food_name,bought,food_group,userid) VALUES (NULL,'$food','$bought','$group','1');";
      $stmt = $dbconn->query($sql);
+     if ($stmt) {
+        echo "New record has been added successfully !";
+     } else {
+        echo "Error: " . $sql;
+     }
+     header("Location:grocery.php");
+    
+}
+
+
+if(isset($_POST['add']))
+    {    
+      $dbh = new PDO("mysql:host=$hostname;dbname=stock_smart", $username, $password);
+      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+      $num = $_POST['add'];
+      echo "$num";
+      $query = $dbh->query("SELECT * FROM grocery where id ='$num'");
+      $row = $query->fetch();
+     $food = $row['food_name'];
+     $group = $_POST['food_group'];
+     $sql = "INSERT INTO `food_items` (`id`, `food_name`, `food_group`, `purchase_date`, `expiration_date`, `item_opened`, `userid`) VALUES (NULL, '$food', '$group', current_timestamp(), current_timestamp(), '', '');";
+     $stmt = $dbh->query($sql);
      if ($stmt) {
         echo "New record has been added successfully !";
      } else {
@@ -155,9 +177,10 @@ $query = $dbh->query('SELECT * FROM grocery');
             echo '</td>';
             echo '<td>';
             echo '<div class="form-check">';
-                   echo' <input class="form-check-input" type="checkbox" name = "add" value="" id="flexCheckDefault">';
+            echo '<form name="form" action="" method="post">';
+                   echo' <button type="submit" class="btn btn-dark" name="add" value ="'.$row['id'].'">Submit</button>';
                    echo ' <label class="form-check-label" for="flexCheckDefault"></label>';
-            echo '</div>';
+            echo '</form></div>';
             echo '</td>';
             echo "</tr>";
             }
