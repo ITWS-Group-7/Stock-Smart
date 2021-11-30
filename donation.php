@@ -151,54 +151,24 @@ catch(PDOException $e)
             </tr>
           </thead>
             <tbody>
-            <tr >
-              <th scope="row">1 day</th>
-              <td>Beef</td>
-              <td>
-                <form>  
-                <label> Select Location </label>  
-                <br>
-                <select>  
-                <option value = "loc1"> Halal  
-                </option>  
-                <option value = "loc2"> Collar Grill 
-                </option>  
-                <option value = "loc3"> Thundershack
-                </option>  
-                <option value = "loc4"> Pizza Place
-                </option>  
-                </select>  
-                </form>
-              </td>
-              <td>12/31/2021</td>
-              <td>
-                <label>Donated</label>
-                <input type="checkbox" id="donate1" name="donate1" value="1">
-              <br></td>
-            </tr>
-            <tr >
+            
             <?php
             while ($row = $query->fetch()) 
             {
               
             echo '<th scope="row">1 day</th>';
             echo "<td>". $row['id'] ."</td>";
-            echo '<td>';
-            echo '<form>';
+            echo '<td><form>';
             echo '<label> Select Location </label>  ';
                 <br>
-                <select>  
-                <option value = "loc1"> Halal  
-                </option>  
-                <option value = "loc2"> Collar Grill 
-                </option>  
-                <option value = "loc3"> Thundershack
-                </option>  
-                <option value = "loc4"> Pizza Place
-                </option>  
-                </select>  
-                </form>
-              </td>
+                echo"<select> ";
+                while ($row = $query->fetch()){ //fetch only locations
+                echo"<option value = ".$row['loc'].">" .$row['loc'].
+                "</option>  ";
+                } 
+                echo "</select></form> </td> ";
+                
+              
               <td>12/31/2021</td>
               <td>
                 <label>Donated</label>
@@ -232,56 +202,7 @@ catch(PDOException $e)
                 <input type="checkbox" id="donate1" name="donate1" value="1">
               <br></td>
             </tr>
-            <tr >
-              <th scope="row">1 day</th>
-              <td>Crabsticks</td>
-              <td>
-                <form>  
-                <label> Select Location </label>  
-                <br>
-                <select>  
-                <option value = "loc1"> Halal  
-                </option>  
-                <option value = "loc2"> Collar Grill 
-                </option>  
-                <option value = "loc3"> Thundershack
-                </option>  
-                <option value = "loc4"> Pizza Place
-                </option>  
-                </select>  
-                </form>
-              </td>
-              <td>12/31/2021</td>
-              <td>
-                <label>Donated</label>
-                <input type="checkbox" id="donate1" name="donate1" value="1">
-              <br></td>
-            </tr>
-            <tr >
-              <th scope="row">1 day</th>
-              <td>Small box of Mushrooms</td>
-              <td>
-                <form>  
-                <label> Select Location </label>  
-                <br>
-                <select>  
-                <option value = "loc1"> Halal  
-                </option>  
-                <option value = "loc2"> Collar Grill 
-                </option>  
-                <option value = "loc3"> Thundershack
-                </option>  
-                <option value = "loc4"> Pizza Place
-                </option>  
-                </select>  
-                </form>
-              </td>
-              <td>12/31/2021</td>
-              <td>
-                <label>Donated</label>
-                <input type="checkbox" id="donate1" name="donate1" value="1">
-              <br></td>
-            </tr>
+            
           </tbody>
         </div>
         </div>

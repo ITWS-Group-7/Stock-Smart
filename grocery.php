@@ -130,23 +130,6 @@ $query = $db->query('SELECT * FROM pet');
             </tr>
         </thead>
         <tbody>
-            <tr>
-            <th scope="row">1</th>
-            <td>Almond Milk</td>
-            <td>Dairy</td>
-            <td><div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault"></label>
-            </div>
-            </td>
-            <td>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault"></label>
-                </div>
-            </td>
-            </tr>
-            <tr>
             <?php
             while ($row = $query->fetch()) 
             {
@@ -169,51 +152,7 @@ $query = $db->query('SELECT * FROM pet');
             echo "</tr>";
             }
             ?>
-            <th scope="row">2</th>
-            <td>Tomatoes</td>
-            <td>Vegetables</td>
-            <td><div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault"></label>
-            </div>
-            </td>
-            <td>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault"></label>
-                </div>
-            </td>
-            </tr>
-            <tr>
-            <th scope="row">3</th>
-            <td>Apple</td>
-            <td>Fruit</td>
-            <td><div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault"></label>
-            </div>
-            </td>
-            <td><div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault"></label>
-            </div>
-            </td>
-            </tr>
-            <tr>
-            <th scope="row">4</th>
-            <td></td>
-            <td></td>
-            <td><div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault"></label>
-            </div>
-            </td>
-            <td><div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault"></label>
-            </div>
-            </td>
-            </tr>
+            
         </tbody>
         </table>
         </div>
