@@ -36,7 +36,7 @@
          $print . "'</tr>'";
         }
         echo $print;
-
+// save string to session super global and check
 
 
         header("Location: grocery.html?print_dairy=success");
