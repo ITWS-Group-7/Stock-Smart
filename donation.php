@@ -23,7 +23,7 @@ catch(PDOException $e)
     {    
      $food = $_POST['food'];
      $group = $_POST['group'];
-     $sql = "INSERT INTO courses (crn,prefix,number,title,section,year) VALUES ('$crn','$prefix','$number','$title','$section','$year')";
+     $sql = "INSERT INTO donation (`id`, `food_name`, `username`, `expiration_date`, `donated`) VALUES (NULL, '$food', 'test', '2021-12-08 09:18:59', '1');";
      $stmt = $dbconn->query($sql);
      if ($stmt) {
         echo "New record has been added successfully !";
@@ -200,7 +200,7 @@ $query = $dbh->query('SELECT * FROM donation');
               </button>
               </div>
               <div class="modal-body">
-                  <form>
+                  <form action="" method="post">
                       <div class="form-group">
                         <label for="food">Food</label>
                         <input class="form-control"name ='food' type="text" placeholder="Input food item">
@@ -212,11 +212,11 @@ $query = $dbh->query('SELECT * FROM donation');
                         </div>
 
                       <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-                    </form>
+                         <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-dark" name='submit-donate'>Submit</button>
               </div>
-              <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-dark" name='submit-donate'>Submit</button>
+                    </form>
               </div>
           </div>
           </div>
