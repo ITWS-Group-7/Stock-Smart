@@ -22,22 +22,21 @@ catch(PDOException $e)
     if(isset($_POST['submit-grocery']))
     {    
       $id = Null;
-     $food = $_POST['food-item'];
-     $group = $_POST['food-group'];
+     $food = $_POST['food'];
+     $group = $_POST['group'];
      if(isset($_POST['bought'])){
-      $bought = 1;
+      $bought = '1';
       } else {
-      $bought = 0;
+      $bought = '0';
       }
-     $sql = "INSERT INTO grocery (id,food_name,bought,food_group,username) VALUES (NULL,'$food','$bought','$group',NULL)";
+     $sql = "INSERT INTO grocery (id,food_name,bought,food_group,username) VALUES (NULL,'$food','$bought','$group','test');";
      $stmt = $dbconn->query($sql);
      if ($stmt) {
         echo "New record has been added successfully !";
      } else {
         echo "Error: " . $sql;
      }
-     header('Location:grocery.php');
-    
+     header("Location:grocery.php");
     
 }
 
@@ -73,13 +72,13 @@ $query = $dbh->query('SELECT * FROM grocery');
                 <div class="collapse navbar-collapse" id="navbarSupportedContent" style = "margin-right: 300px;">
                   <ul class="navbar-nav ml-lg-auto">
                     <li class="nav-item active">
-                      <a class="nav-link menu"  href="./kitchen.html">In My Kitchen <span class="sr-only">(current)</span></a>
+                      <a class="nav-link menu"  href="kitchen.php">In My Kitchen <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link menu" href="grocery.html">Grocery List</a>
+                      <a class="nav-link menu" href="grocery.php">Grocery List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu" href="donationlist.html">Donation List</a>
+                        <a class="nav-link menu" href="donation.php">Donation List</a>
                       </li>
       
       
@@ -89,7 +88,7 @@ $query = $dbh->query('SELECT * FROM grocery');
                         Profile
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">My profile</a>
+                        <a class="dropdown-item" href="user_profile.php">My profile</a>
                         <a class="dropdown-item" href="#">Switch Account</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Log out</a>
@@ -108,10 +107,9 @@ $query = $dbh->query('SELECT * FROM grocery');
                 </div>
       
                 <div class = "signup_login">
-                  <a href="./signup.html" class="btn btn-primary signup">Sign Up</a>
-                  <a href="./login.html" class="btn btn-primary login" >Login</a>
-                </div>
-      
+            
+               <a href="includes/logout.inc.php" class="btn btn-primary login" >Logout</a>
+            </div>
       
       
       
@@ -146,7 +144,7 @@ $query = $dbh->query('SELECT * FROM grocery');
             echo "<td>" . $row['food_name'] ."</td>";
             echo "<td>" . $row['food_group'] . "</td>";
             echo '<td><div class="form-check">';
-            if($row['bought'] =1){
+            if($row['bought'] == 1){
               echo "Yes";
             } else {
               echo "No";
@@ -168,49 +166,46 @@ $query = $dbh->query('SELECT * FROM grocery');
         </tbody>
         </table>
         </div>
-      <div class="container">
-          <button type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#exampleModal">
-            Add to Grocery List
-          </button>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title">Add to Grocery List</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body">
-                    <form method ="POST" action = "grocery.php">
-                        <div class="form-group">
-                          <label for="food">Food</label>
-                          <input class="form-control" type="text" name='food-item' placeholder="Input food item">
+        <div class="container">
+        <button type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#exampleModal">
+          Add to Grocery List
+        </button>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+              <h5 class="modal-title">Add to Grocery List</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+              </div>
+              <div class="modal-body">
+                  <form action="" method="post">
+                      <div class="form-group">
+                        <label for="food">Food</label>
+                        <input class="form-control" name ='food' type="text" placeholder="Input food item">
+                      </div>
+                      <div class="form-group">
+                          <label for="food-group">Food Group</label>
+                          <input class="form-control" name = 'group' type="text" placeholder="Input location for Donation">
+                          <small id="emailHelp" class="form-text text-muted">Please put down the specific name or location</small>
                         </div>
-                        <div class="form-group">
-                            <label for="food-group">Food Group</label>
-                            <input class="form-control" type="text" name='food-group' placeholder="Input food group">
-                            <small id="emailHelp" class="form-text text-muted">Food group options are fruits, vegetables, grains, or proteins</small>
-                          </div>
                         <div class="form-check">
                           <input type="checkbox" class="form-check-input" name ='bought' id="exampleCheck1">
                           <label class="form-check-label" for="exampleCheck1">Bought</label>
                         </div>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Add to Kitchen</label>
-                          </div>
-                        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-                      </form>
-                </div>
-                <div class="modal-footer">
+
+                      <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                         <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" name='submit-grocery' class="btn btn-dark">Submit</button>
-                </div>
-            </div>
-            </div>
-        </div>
+                <button type="submit" class="btn btn-dark" name='submit-grocery'>Submit</button>
+              </div>
+                    </form>
+              </div>
+          </div>
+          </div>
+      </div>
         
     </body>
     <script src = "kitchen.js"></script>

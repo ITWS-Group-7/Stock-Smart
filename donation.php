@@ -30,7 +30,7 @@ catch(PDOException $e)
      } else {
         echo "Error: " . $sql;
      }
-    
+     header("Location:donation.php");
 }
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 $query = $dbh->query('SELECT * FROM donation');
