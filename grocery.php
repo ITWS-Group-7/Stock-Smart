@@ -9,8 +9,8 @@ $username = 'root';
 $password = '';
 
 try {
-    $dbh = new PDO("mysql:host=$hostname;dbname=websyslab7", $username, $password);
-    $dbconn = new PDO("mysql:host=$hostname;dbname=websyslab7",$username,$password);
+    $dbh = new PDO("mysql:host=$hostname;dbname=stock_smart", $username, $password);
+    $dbconn = new PDO("mysql:host=$hostname;dbname=stock_smart",$username,$password);
     echo 'Connected to database';
     }
 catch(PDOException $e)
@@ -21,20 +21,28 @@ catch(PDOException $e)
     include_once 'grocery.php';
     if(isset($_POST['submit-grocery']))
     {    
+      $id = Null;
      $food = $_POST['food-item'];
      $group = $_POST['food-group'];
-     $sql = "INSERT INTO courses (crn,prefix,number,title,section,year) VALUES ('$crn','$prefix','$number','$title','$section','$year')";
+     if(isset($_POST['bought'])){
+      $bought = 1;
+      } else {
+      $bought = 0;
+      }
+     $sql = "INSERT INTO grocery (id,food_name,bought,food_group,username) VALUES (NULL,'$food','$bought','$group',NULL)";
      $stmt = $dbconn->query($sql);
      if ($stmt) {
         echo "New record has been added successfully !";
      } else {
         echo "Error: " . $sql;
      }
+     header('Location:grocery.php');
+    
     
 }
 
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-$query = $db->query('SELECT * FROM pet');
+$query = $dbh->query('SELECT * FROM grocery');
 ?>
 <html>
     <head>
@@ -134,18 +142,22 @@ $query = $db->query('SELECT * FROM pet');
             while ($row = $query->fetch()) 
             {
               echo "<tr>";
-              echo "<th scope='row'>1</th>";
-            echo "<td>" . $row['id'] ."</td>";
-            echo "<td>" . $row['name'] . "</td>";
-            echo "<td>" . $row['price'] . "</td>";
+              echo "<th scope='row'>". $row['id'] ."</th>";
+            echo "<td>" . $row['food_name'] ."</td>";
+            echo "<td>" . $row['food_group'] . "</td>";
             echo '<td><div class="form-check">';
-            echo '<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">';
-            echo '<label class="form-check-label" for="flexCheckDefault"></label>';
+            if($row['bought'] =1){
+              echo "Yes";
+            } else {
+              echo "No";
+            }
+           // echo '<input class="form-check-input" type="checkbox" name ="bought" value="" id="flexCheckDefault">';
+            //echo '<label class="form-check-label" for="flexCheckDefault"></label>';
             echo '</div>';
             echo '</td>';
             echo '<td>';
             echo '<div class="form-check">';
-                   echo' <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">';
+                   echo' <input class="form-check-input" type="checkbox" name = "add" value="" id="flexCheckDefault">';
                    echo ' <label class="form-check-label" for="flexCheckDefault"></label>';
             echo '</div>';
             echo '</td>';
@@ -158,7 +170,7 @@ $query = $db->query('SELECT * FROM pet');
         </div>
       <div class="container">
           <button type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#exampleModal">
-            Add to Donation List
+            Add to Grocery List
           </button>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -171,7 +183,7 @@ $query = $db->query('SELECT * FROM pet');
                 </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form method ="POST" action = "grocery.php">
                         <div class="form-group">
                           <label for="food">Food</label>
                           <input class="form-control" type="text" name='food-item' placeholder="Input food item">
@@ -182,7 +194,7 @@ $query = $db->query('SELECT * FROM pet');
                             <small id="emailHelp" class="form-text text-muted">Food group options are fruits, vegetables, grains, or proteins</small>
                           </div>
                         <div class="form-check">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <input type="checkbox" class="form-check-input" name ='bought' id="exampleCheck1">
                           <label class="form-check-label" for="exampleCheck1">Bought</label>
                         </div>
                         <div class="form-check">

@@ -9,8 +9,8 @@ $username = 'root';
 $password = '';
 
 try {
-    $dbh = new PDO("mysql:host=$hostname;dbname=websyslab7", $username, $password);
-    $dbconn = new PDO("mysql:host=$hostname;dbname=websyslab7",$username,$password);
+    $dbh = new PDO("mysql:host=$hostname;dbname=stock_smart", $username, $password);
+    $dbconn = new PDO("mysql:host=$hostname;dbname=stock_smart",$username,$password);
     echo 'Connected to database';
     }
 catch(PDOException $e)
@@ -32,6 +32,8 @@ catch(PDOException $e)
      }
     
 }
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+$query = $dbh->query('SELECT * FROM donation');
 ?>
 
 <html>
@@ -145,8 +147,7 @@ catch(PDOException $e)
             <tr>
               <th scope = "col">Close to expire</th>
               <th scope = "col">Food</th>
-              <th scope = "col">Location</th>
-              <th scope = "col">Donate By</th>
+              <th scope = "col">Expiration</th>
               <th scope = "col">Donated</th>
             </tr>
           </thead>
@@ -156,52 +157,25 @@ catch(PDOException $e)
             while ($row = $query->fetch()) 
             {
               
-            echo '<th scope="row">1 day</th>';
-            echo "<td>". $row['id'] ."</td>";
-            echo '<td><form>';
-            echo '<label> Select Location </label>  ';
-                <br>
-                echo"<select> ";
-                while ($row = $query->fetch()){ //fetch only locations
-                echo"<option value = ".$row['loc'].">" .$row['loc'].
-                "</option>  ";
-                } 
-                echo "</select></form> </td> ";
-                
-              
-              <td>12/31/2021</td>
-              <td>
-                <label>Donated</label>
-                <input type="checkbox" id="donate1" name="donate1" value="1">
-              <br></td>
-            </tr>
-            <tr >
+              echo "<tr>";
+              echo "<th scope='row'>". $row['id'] ."</th>";
+            echo "<td>" . $row['food_name'] ."</td>";
+            echo "<td>" . $row['expiration_date'] . "</td>";
+            echo '<td><div class="form-check">';
+            if($row['donated'] =1){
+              echo "Yes";
+            } else {
+              echo "No";
+            }
+           // echo '<input class="form-check-input" type="checkbox" name ="bought" value="" id="flexCheckDefault">';
+            //echo '<label class="form-check-label" for="flexCheckDefault"></label>';
+            echo '</div>';
+ 
+            echo "</tr>";
+            
             }
             ?>
-              <th scope="row">1 day</th>
-              <td>Chicken Tenderloins</td>
-              <td>
-                <form>  
-                <label> Select Location </label>  
-                <br>
-                <select>  
-                <option value = "loc1"> Halal  
-                </option>  
-                <option value = "loc2"> Collar Grill 
-                </option>  
-                <option value = "loc3"> Thundershack
-                </option>  
-                <option value = "loc4"> Pizza Place
-                </option>  
-                </select>  
-                </form>
-              </td>
-              <td>12/31/2021</td>
-              <td>
-                <label>Donated</label>
-                <input type="checkbox" id="donate1" name="donate1" value="1">
-              <br></td>
-            </tr>
+              
             
           </tbody>
         </div>
