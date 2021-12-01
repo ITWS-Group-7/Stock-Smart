@@ -70,9 +70,9 @@ $query = $dbh->query('SELECT * FROM donation');
         text-align:center;
         padding:20px;
       } */
-      body{
+      /* body{
         text-align:center;
-      }
+      } */
 
 
       </style>
@@ -145,7 +145,7 @@ $query = $dbh->query('SELECT * FROM donation');
 
     <!--Graph-->
     <div class="container">
-      <h1>Donation list</h1>
+      <h1 style="text-align: center">Donation list</h1>
       <div class="modal-body">
         <table class = "table  table-bordered">
           <thead class ="thead-light">
@@ -210,11 +210,16 @@ $query = $dbh->query('SELECT * FROM donation');
                         <label for="food">Food</label>
                         <input class="form-control"name ='food' type="text" placeholder="Input food item">
                       </div>
-                      <div class="form-group">
-                          <label for="food-group">Food Group</label>
-                          <input class="form-control" name = 'group' type="text" placeholder="Input location for Donation">
-                          <small id="emailHelp" class="form-text text-muted">Please put down the specific name or location</small>
-                        </div>
+                      <div class="mb-3">
+                    <label for="exampleFormControlSelect1">Select Food Group</label>
+                    <select class="form-control" name ="group" id="exampleFormControlSelect1">
+                      <option value ="Dairy">Dairy</option>
+                      <option  value ="Fruits">Fruits</option>
+                      <option value ="Vegetables">Vegetables</option>
+                      <option value ="Grains">Grains</option>
+                      <option value ="Protien">Protien</option>
+                    </select>
+                  </div>
                         <div class="form-check">
                           <input type="checkbox" class="form-check-input" name ='donate' id="exampleCheck1">
                           <label class="form-check-label" for="exampleCheck1">Donate?</label>
