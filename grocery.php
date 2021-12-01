@@ -29,7 +29,7 @@ catch(PDOException $e)
       } else {
       $bought = '0';
       }
-     $sql = "INSERT INTO grocery (id,food_name,bought,food_group,userid) VALUES (NULL,'$food','$bought','$group','1');";
+     $sql = "INSERT INTO grocery (id,food_name,bought,food_group,userid) VALUES (NULL,'$food','$bought','$group',(SELECT id FROM users WHERE id ='1'));";
      $stmt = $dbconn->query($sql);
      if ($stmt) {
         echo "New record has been added successfully !";
