@@ -28,7 +28,7 @@ catch(PDOException $e)
       } else {
       $donate = 0;
       }
-     $sql = "INSERT INTO donation (`id`, `food_name`, `userid`, `expiration_date`, `donated`) VALUES (NULL, '$food', (SELECT id FROM users WHERE id ='1'), '2021-12-08 09:18:59', '$donate');";
+     $sql = "INSERT INTO donation (`id`, `food_name`, `userid`, `expiration_date`, `donated`) VALUES (NULL, '$food', $id, '2021-12-08 09:18:59', '$donate');";
      $stmt = $dbconn->query($sql);
      if ($stmt) {
         echo "New record has been added successfully !";
