@@ -46,12 +46,12 @@ if(isset($_POST['add']))
       $dbh = new PDO("mysql:host=$hostname;dbname=stock_smart", $username, $password);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
       $num = $_POST['add'];
-      echo $num;
-      $query = $dbh->query("SELECT * FROM grocery where id ='$num'");
-      $row = $query->fetch();
-      $food = $_POST['food_name'];
-     $group = $_POST['food_group'];
-     $sql = "INSERT INTO food_items (id, food_name, food_group, purchase_date, expiration_date, item_opened,userid) VALUES (NULL, '$food', '$group', current_timestamp(), current_timestamp(), '', '');";
+      $sql = "SELECT * FROM grocery where id ='$num'";
+      $result = $dbh->query($sql);
+      $row = $result->fetch(PDO::FETCH_ASSOC);
+      $food = $row['food_name'];
+     $group = $row['food_group'];
+     $sql = "INSERT INTO food_items (id, food_name, food_group, purchase_date, expiration_date, item_opened,userid) VALUES (NULL, '$food', '$group', current_timestamp(), current_timestamp(), '1', (SELECT id FROM users WHERE id ='1'));";
      $stmt = $dbh->query($sql);
      if ($stmt) {
         echo "New record has been added successfully !";
