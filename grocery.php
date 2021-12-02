@@ -72,7 +72,7 @@ if(isset($_POST['change']))
       $bought = $row['bought'];
       if ($row['bought'] == 1){
         $bought = 0;
-      } else if ($row['bought'] == 0){
+      } else if ($bought == 0){
         $bought = 1;
       }
      $sql = "UPDATE grocery SET bought = '$bought' WHERE grocery.id = '$num';";
