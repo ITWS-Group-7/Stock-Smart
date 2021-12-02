@@ -46,7 +46,7 @@ if(isset($_POST['add']))
       $dbh = new PDO("mysql:host=$hostname;dbname=stock_smart", $username, $password);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
       $num = $_POST['add'];
-      $sql = "SELECT * FROM grocery where id ='$num'";
+      $sql = "SELECT * FROM grocery where food_name ='$num'";
       $result = $dbh->query($sql);
       $row = $result->fetch(PDO::FETCH_ASSOC);
       $food = $row['food_name'];
@@ -66,8 +66,8 @@ if(isset($_POST['submit-to-kitchen']))
     {    
       $dbh = new PDO("mysql:host=$hostname;dbname=stock_smart", $username, $password);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-      $num = $_POST['add'];
-      $num = "1";
+      $num = $_POST['idfood'];
+      echo "$num";
       $sql = "SELECT * FROM grocery where id ='$num'";
       $result = $dbh->query($sql);
       $row = $result->fetch(PDO::FETCH_ASSOC);
@@ -199,7 +199,6 @@ $query = $dbh->query('SELECT * FROM grocery');
             //echo '<label class="form-check-label" for="flexCheckDefault"></label>';
             echo '</div>';
             echo '</td>';
-        echo '<td><form name="form" action="" method="post"> <button type="button" class="btn btn-info btn-lg" name ="adder" id = "adder" data-toggle="modal" data-target="#myModal1" value ="'.$row['id'].'">Submit expiration date</button></form></td>';
             echo '<td>';
             echo '<div class="form-check">';
             echo '<form name="form" action="" method="post">';
@@ -260,8 +259,7 @@ $query = $dbh->query('SELECT * FROM grocery');
           </div>
           </div>
       </div>
-        
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1">Open Modal</button>
+      <form name="form" action="" method="post"> <button type="button" class="btn btn-info btn-lg" name ="adder" id = "adder" data-toggle="modal" data-target="#myModal1" value ="'.$row['id'].'">Submit expiration date</button></form>
 
 <!-- Modal -->
 <div id="myModal1" class="modal fade" role="dialog">
@@ -276,21 +274,22 @@ $query = $dbh->query('SELECT * FROM grocery');
                   <span aria-hidden="true">&times;</span>
               </button>
               </div>
-              <?php
-                  echo '<div class="mb-3">
+              <form action="" method="post">
+              <div class="mb-3">
                   <label for="exampleFormControlSelect1">Select Food to Add to Kitchen</label>
-                  <select class="form-control" name ="foods" id="exampleFormControlSelect1">';
+                  <select class="form-control" name ="idfood" id="exampleFormControlSelect1">
+              <?php
+              $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+              $query = $dbh->query('SELECT * FROM grocery');
                   while ($row = $query->fetch()) 
                   {
-                    echo  '<option value ="'. $row['food_name'] .'">'. $row['food_name'] .'</option>';
+                    echo  "<option value ='".$row['id']."'>". $row['food_name'] ."</option>";
                   }
-                    
-                   echo' </select>
-                  </div>';
-                  
                 ?>
+                </select>
+                  </div>
               <div class="modal-body">
-                  <form action="" method="post">
+                 
                   <div class="mb-3">
                     <label for="exampleFormControlInput1">Purchase Date</label>
                     <input type="date" class="form-control" name = "PDate"id="exampleFormControlInput1" placeholder="Enter Purchase Date MM-DD-YY">
