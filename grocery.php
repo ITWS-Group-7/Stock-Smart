@@ -72,7 +72,7 @@ if(isset($_POST['change']))
       $bought = $row['bought'];
       if ($row['bought'] == 1){
         $bought = 0;
-      } else if ($bought == 0){
+      } elseif ($row['bought'] == 0){
         $bought = 1;
       }
      $sql = "UPDATE grocery SET bought = '$bought' WHERE grocery.id = '$num';";
@@ -202,7 +202,7 @@ $query = $dbh->query('SELECT * FROM grocery');
             <th scope="col">FOOD</th>
             <th scope="col">FOOD GROUP</th>
             <th scope="col">BOUGHT</th>
-            <th scope="col">ADD TO KITCHEN</th>
+            <!--<th scope="col">ADD TO KITCHEN</th>-->
             </tr>
         </thead>
         <tbody>
@@ -217,24 +217,26 @@ $query = $dbh->query('SELECT * FROM grocery');
             if($row['bought'] == 1){
               echo "Yes";
             } else {
+              echo '<div class="form-check">';
+              echo '<form name="form" action="" method="post">';
+              echo'<div>';
+              echo' <button type="submit" style="float:right;" class="btn btn-danger btn-sm"  name="change" id = "change" value ="'.$row['id'].'">Change</button></div>';
+               echo ' <label class="form-check-label" for="flexCheckDefault"></label>';
+              echo '</form></div>';
               echo "No";
             }
            // echo '<input class="form-check-input" type="checkbox" name ="bought" value="" id="flexCheckDefault">';
             //echo '<label class="form-check-label" for="flexCheckDefault"></label>';
             echo '</div>';
-               echo '<div class="form-check">';
-            echo '<form name="form" action="" method="post">';
-            echo' <button type="submit" class="btn btn-dark" name="change" id = "change" value ="'.$row['id'].'">Change</button>';
-             echo ' <label class="form-check-label" for="flexCheckDefault"></label>';
-            echo '</form></div>';
+
             echo '</td>';
-            echo '<td>';
+            //echo '<td>';
            // echo '<div class="form-check">';
             //echo '<form name="form" action="" method="post">';
             //echo' <button type="submit" class="btn btn-dark" name="add" id = "add" value ="'.$row['id'].'">Submit</button>';
               //     echo ' <label class="form-check-label" for="flexCheckDefault"></label>';
             //echo '</form></div>';
-            echo '</td>';
+            //echo '</td>';
             echo "</tr>";
             }
             ?>
@@ -288,7 +290,7 @@ $query = $dbh->query('SELECT * FROM grocery');
           </div>
           </div>
       </div>
-      <form name="form" action="" method="post"> <button type="button" class="btn btn-info btn-lg" name ="adder" id = "adder" data-toggle="modal" data-target="#myModal1" value ="'.$row['id'].'">Submit expiration date</button></form>
+      <form name="form" action="" method="post"> <button type="button" style ="margin-right:10px;"class="btn btn-dark float-right" name ="adder" id = "adder" data-toggle="modal" data-target="#myModal1" value ="'.$row['id'].'">Add to Kitchen</button></form>
 
 <!-- Modal -->
 <div id="myModal1" class="modal fade" role="dialog">
