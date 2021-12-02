@@ -62,6 +62,29 @@ if(isset($_POST['add']))
     
 }
 
+if(isset($_POST['submit-to-kitchen']))
+    {    
+      $dbh = new PDO("mysql:host=$hostname;dbname=stock_smart", $username, $password);
+      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+      $num = $_POST['add'];
+      $sql = "SELECT * FROM grocery where id ='$num'";
+      $result = $dbh->query($sql);
+      $row = $result->fetch(PDO::FETCH_ASSOC);
+      $food = $row['food_name'];
+     $group = $row['food_group'];
+     $PDate = $_POST['PDate'];
+     $EDate = $_POST['EDate'];
+     $sql = "INSERT INTO food_items (id, food_name, food_group, purchase_date, expiration_date, item_opened,userid) VALUES (NULL, '$food', '$group', '$PDate', '$EDate', '1', (SELECT id FROM users WHERE id ='1'));";
+     $stmt = $dbh->query($sql);
+     if ($stmt) {
+        echo "New record has been added successfully !";
+     } else {
+        echo "Error: " . $sql;
+     }
+     header("Location:grocery.php");
+    
+}
+
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 $query = $dbh->query('SELECT * FROM grocery');
 ?>
@@ -175,10 +198,11 @@ $query = $dbh->query('SELECT * FROM grocery');
             //echo '<label class="form-check-label" for="flexCheckDefault"></label>';
             echo '</div>';
             echo '</td>';
+        echo '<td><form name="form" action="" method="post"> <button type="button" class="btn btn-info btn-lg" name ="adder" id = "adder" data-toggle="modal" data-target="#myModal1" value ="'.$row['id'].'">Submit expiration date</button></form></td>';
             echo '<td>';
             echo '<div class="form-check">';
             echo '<form name="form" action="" method="post">';
-                   echo' <button type="submit" class="btn btn-dark" name="add" id = "add" value ="'.$row['id'].'">Submit</button>';
+            echo' <button type="submit" class="btn btn-dark" name="add" id = "add" value ="'.$row['id'].'">Submit</button>';
                    echo ' <label class="form-check-label" for="flexCheckDefault"></label>';
             echo '</form></div>';
             echo '</td>';
@@ -219,6 +243,7 @@ $query = $dbh->query('SELECT * FROM grocery');
                       <option value ="Protien">Protien</option>
                     </select>
                   </div>
+                  
                         <div class="form-check">
                           <input type="checkbox" class="form-check-input" name ='bought' id="exampleCheck1">
                           <label class="form-check-label" for="exampleCheck1">Bought</label>
@@ -235,6 +260,47 @@ $query = $dbh->query('SELECT * FROM grocery');
           </div>
       </div>
         
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1">Open Modal</button>
+
+<!-- Modal -->
+<div id="myModal1" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+              <h5 class="modal-title">Add to Kitchen</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+              </div>
+              <?php
+                  echo $_POST['adder'];
+                ?>
+              <div class="modal-body">
+                  <form action="" method="post">
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1">Purchase Date</label>
+                    <input type="date" class="form-control" name = "PDate"id="exampleFormControlInput1" placeholder="Enter Purchase Date MM-DD-YY">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1">Expiration Date</label>
+                    <input type="date" class="form-control" name ="EDate" id="exampleFormControlInput1" placeholder="Enter Expiration Date MM-DD-YY">
+                  </div>
+
+                      <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                         <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-dark" name='submit-to-kitchen'>Submit</button>
+              </div>
+                    </form>
+              </div>
+          </div>
+          </div>
+  </div>
+</div>
+
     </body>
     <script src = "kitchen.js"></script>
 </html>
