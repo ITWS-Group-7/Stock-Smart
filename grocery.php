@@ -67,6 +67,7 @@ if(isset($_POST['submit-to-kitchen']))
       $dbh = new PDO("mysql:host=$hostname;dbname=stock_smart", $username, $password);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
       $num = $_POST['add'];
+      $num = "1";
       $sql = "SELECT * FROM grocery where id ='$num'";
       $result = $dbh->query($sql);
       $row = $result->fetch(PDO::FETCH_ASSOC);
@@ -276,7 +277,17 @@ $query = $dbh->query('SELECT * FROM grocery');
               </button>
               </div>
               <?php
-                  echo $_POST['adder'];
+                  echo '<div class="mb-3">
+                  <label for="exampleFormControlSelect1">Select Food to Add to Kitchen</label>
+                  <select class="form-control" name ="foods" id="exampleFormControlSelect1">';
+                  while ($row = $query->fetch()) 
+                  {
+                    echo  '<option value ="'. $row['food_name'] .'">'. $row['food_name'] .'</option>';
+                  }
+                    
+                   echo' </select>
+                  </div>';
+                  
                 ?>
               <div class="modal-body">
                   <form action="" method="post">
