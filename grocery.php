@@ -61,6 +61,30 @@ if(isset($_POST['add']))
      header("Location:grocery.php");
     
 }
+if(isset($_POST['change']))
+    {    
+      $dbh = new PDO("mysql:host=$hostname;dbname=stock_smart", $username, $password);
+      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+      $num = $_POST['change'];
+      $sql = "SELECT * FROM grocery where food_name ='$num'";
+      $result = $dbh->query($sql);
+      $row = $result->fetch(PDO::FETCH_ASSOC);
+      $bought = $row['bought'];
+      if ($row['bought'] == 1){
+        $bought = 0;
+      } else if ($row['bought'] == 0){
+        $bought = 1;
+      }
+     $sql = "UPDATE grocery SET bought = '$bought' WHERE grocery.id = '$num';";
+     $stmt = $dbh->query($sql);
+     if ($stmt) {
+        echo "New record has been added successfully !";
+     } else {
+        echo "Error: " . $sql;
+     }
+     header("Location:grocery.php");
+    
+}
 
 if(isset($_POST['submit-to-kitchen']))
     {    
@@ -198,13 +222,18 @@ $query = $dbh->query('SELECT * FROM grocery');
            // echo '<input class="form-check-input" type="checkbox" name ="bought" value="" id="flexCheckDefault">';
             //echo '<label class="form-check-label" for="flexCheckDefault"></label>';
             echo '</div>';
+               echo '<div class="form-check">';
+            echo '<form name="form" action="" method="post">';
+            echo' <button type="submit" class="btn btn-dark" name="change" id = "change" value ="'.$row['id'].'">Change</button>';
+             echo ' <label class="form-check-label" for="flexCheckDefault"></label>';
+            echo '</form></div>';
             echo '</td>';
             echo '<td>';
-            echo '<div class="form-check">';
-            echo '<form name="form" action="" method="post">';
-            echo' <button type="submit" class="btn btn-dark" name="add" id = "add" value ="'.$row['id'].'">Submit</button>';
-                   echo ' <label class="form-check-label" for="flexCheckDefault"></label>';
-            echo '</form></div>';
+           // echo '<div class="form-check">';
+            //echo '<form name="form" action="" method="post">';
+            //echo' <button type="submit" class="btn btn-dark" name="add" id = "add" value ="'.$row['id'].'">Submit</button>';
+              //     echo ' <label class="form-check-label" for="flexCheckDefault"></label>';
+            //echo '</form></div>';
             echo '</td>';
             echo "</tr>";
             }
