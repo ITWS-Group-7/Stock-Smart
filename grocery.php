@@ -162,29 +162,21 @@ $query = $dbh->query("SELECT * FROM grocery WHERE userid = $id");
               
                 <div class="collapse navbar-collapse" id="navbarSupportedContent" style = "margin-right: 300px;">
                   <ul class="navbar-nav ml-lg-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                       <a class="nav-link menu"  href="kitchen.php">In My Kitchen <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                       <a class="nav-link menu" href="grocery.php">Grocery List</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu" href="donation.php">Donation List</a>
+                    </li>
+                      <li class="nav-item">
+                        <a class="nav-link menu" href="user_profile.php">Profile</a>
                       </li>
       
       
-                  
-                    <li class="nav-item dropdown ">
-                      <a class="nav-link dropdown-toggle menu_profile" href="#Profile" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "font-size: 16px; ">
-                        Profile
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="user_profile.php">My profile</a>
-                        <a class="dropdown-item" href="#">Switch Account</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Log out</a>
-                      </div>
-                    </li>
+      
       
       
                  
