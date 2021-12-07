@@ -1,10 +1,12 @@
+<?php include('includes/dbh_connect.php') ?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/signup.css">
@@ -24,58 +26,53 @@
                       class="img-fluid" 
                     />
                   </div>
-
-
                   <div class="col-md-6 col-lg-7 d-flex align-items-center">
                     <div class="card-body p-4 p-lg-5 text-black">
       
-                      <form>
+                      <form action = "includes/register.inc.php" method ="POST">
       
                         <div class="wrapper ">
                           <ul class = "top_bar">
                           <li class = "sign_up">
-                              <a href="signup.html">SIGN UP</a>
+                              <a href="signup.php">SIGN UP</a>
                           </li>
-
-
                           <li class = "login">
-                            <a href="login.html">LOGIN</a>
+                            <a href="login.php">LOGIN</a>
                         </li>
-
                         <hr>
-
                         </ul>
-
                         </div>
                         
                       
                         
                         <div class="form-outline mb-4">
-                          <input type="email" id="form2Example17" class="form-control form-control-lg" placeholder="First Name" />
+                          <input type="text" id="form2Example17" class="form-control form-control-lg" placeholder="First Name" name = "firstnm" />
                           
                         </div>
       
                         <div class="form-outline mb-4">
-                          <input type="password" id="form2Example27" class="form-control form-control-lg" placeholder="Last Name" />
+                          <input type="text" id="form2Example27" class="form-control form-control-lg" placeholder="Last Name" name = "lastnm" />
                           
                         </div>
-
-
-
                         <div class="form-outline mb-4">
-                            <input type="password" id="form2Example27" class="form-control form-control-lg" placeholder="Email" />
+                            <input type="email" id="form2Example27" class="form-control form-control-lg" placeholder="Email" name = "email"/>
                             
                           </div>
+
 
 
 
                           <div class="form-outline mb-4">
-                            <input type="password" id="form2Example27" class="form-control form-control-lg" placeholder="Password" />
+                            <input type="text" id="form2Example27" class="form-control form-control-lg" placeholder="Username" name = "username"/>
+                            
+                          </div>
+                          <div class="form-outline mb-4">
+                            <input type="password" id="form2Example27" class="form-control form-control-lg" placeholder="Password" name = "pw"/>
                             
                           </div>
       
                         <div class="pt-1 mb-4">
-                          <a class="btn btn-dark btn-lg btn-block" href="kitchen.html" role="button">SIGN IN</a>
+                        <button type="submit" class="btn btn-dark btn-lg btn-block" name= "submit">SIGN UP</button>
                          
                         </div>
       
@@ -91,11 +88,8 @@
         </div>
       </section>
    
-
    
-
     
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
