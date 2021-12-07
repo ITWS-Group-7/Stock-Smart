@@ -218,7 +218,7 @@ if (!isset($_SESSION['loggedin'])) {
                       <option  value ="Fruits">Fruits</option>
                       <option value ="Vegetables">Vegetables</option>
                       <option value ="Grains">Grains</option>
-                      <option value ="Protien">Protien</option>
+                      <option value ="Protien">Protein</option>
                     </select>
                   </div>
                         <div class="text-right">
